@@ -34,7 +34,13 @@
   <strong>Website</strong>
   <%= @restaurant.website { |row|  } %>
 </p>
+   <p>
+    <strong>Map</strong>
+  </p>
 
+    <img src="https://maps.googleapis.com/maps/api/staticmap?markers=size:mid|
+    <%= CGI.escape(@restaurant.street_address_1 + @restaurant.street_address_2 + @restaurant.city + @restaurant.state) %> &zoom=13&size=600x300">
+<br>
 
 <%= link_to 'Back', restaurants_path %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
