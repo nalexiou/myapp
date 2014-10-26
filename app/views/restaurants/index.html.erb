@@ -1,0 +1,19 @@
+<h1>Hello, Rails!</h1>
+<%= link_to 'Main Page', restaurants_path %> 
+<%= link_to 'New Restaurant', new_restaurant_path %>
+<h2>Listing Restaurants</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+  </tr>
+  <% @restaurant.each do |restaurant| %>
+    <tr>
+      <td><%= restaurant.name %></td>
+      <td><%= restaurant.city %></td>
+    <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    <td><%= link_to 'Destroy', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+    </tr>
+  <% end %>
+</table>

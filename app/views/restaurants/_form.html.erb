@@ -1,0 +1,55 @@
+<%= form_for @restaurant do |f| %>
+<% if @restaurant.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited
+      this restaurant from being saved:</h2>
+    <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :street_address_1%><br>
+    <%= f.text_area :street_address_1 %>
+  </p>
+
+    <p>
+    <%= f.label :street_address_2 %><br>
+    <%= f.text_area :street_address_2 %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_area :city %>
+  </p>
+
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_area :state %>
+  </p>
+
+  <p>
+    <%= f.label :zipcode %><br>
+    <%= f.text_area :zipcode %>
+  </p>
+
+   <p>
+    <%= f.label :phone_number %><br>
+    <%= f.text_area :phone_number %>
+  </p>
+     <p>
+    <%= f.label :website %><br>
+    <%= f.text_area :website %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
