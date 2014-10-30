@@ -1,8 +1,10 @@
-<h1>Hello, Rails!</h1>
-<%= link_to 'Main Page', restaurants_path %> 
-<%= link_to 'New Restaurant', new_restaurant_path %>
-<h2>Listing Restaurants</h2>
-<table>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View list', restaurants_path %></li>
+  <li><%= link_to 'Add new restaurant', new_restaurant_path %></li>
+</ul>
+<h2>Restaurant List</h2>
+<div id="map-canvas"></div>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>City</th>
@@ -11,9 +13,14 @@
     <tr>
       <td><%= restaurant.name %></td>
       <td><%= restaurant.city %></td>
-    <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+    <td><%= link_to 'Show', restaurant_path(restaurant), class: 'btn btn-primary btn-xs' %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-primary btn-xs' %></td>
+    <td><%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure you want to do this to ' + restaurant.name + '?' }, class: 'btn btn-primary btn-xs' %></td> 
     </tr>
   <% end %>
 </table>
+<br/>
+
+<%= link_to new_restaurant_path, class: 'btn btn-success' do %>
+<i class="glyphicon glyphicon-plus"></i> New Restaurant
+<% end %>

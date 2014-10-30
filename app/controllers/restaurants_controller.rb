@@ -1,4 +1,18 @@
 class RestaurantsController < ApplicationController
+	
+    # helper_method :my_method
+
+	# def my_method(test)
+
+	#     u=URI.parse(test)
+	#     if (!u.scheme)
+	#         link = "http://" + test
+	#     else
+	#         link = test
+	#     end
+	# end
+
+
 	def index
 		@restaurant = Restaurant.all
 	end
@@ -6,6 +20,7 @@ class RestaurantsController < ApplicationController
 	def new
 		@restaurant = Restaurant.new
 	end
+
 
 def create
 		

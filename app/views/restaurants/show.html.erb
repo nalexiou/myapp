@@ -1,47 +1,76 @@
-<h1>Restaurant Details</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
- 
-<p>
+<table class="table">
+  <tr><h2>Restaurant Details</h2></tr>
+<tr>
+  <td><strong>Name:</strong></td>
+  <td><%= @restaurant.name %></td>
+</tr>
+<tr>
+  <td>
   <strong>Address 1:</strong>
-  <%= @restaurant.street_address_1 %>
-</p>
+  </td>
+  <td>  <%= @restaurant.street_address_1 %>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td>
   <strong>Address 2:</strong>
-  <%= @restaurant.street_address_2 %>
-</p>
-<p>
-  <strong>City</strong>
-  <%= @restaurant.city %>
-</p>
-<p>
-  <strong>State</strong>
-  <%= @restaurant.state %>
-</p>
-<p>
-  <strong>Zip Code</strong>
-  <%= @restaurant.zipcode { |row|  } %>
-</p>
-<p>
-  <strong>Phone number</strong>
-  <%= @restaurant.phone_number { |row|  } %>
-</p>
-<p>
-  <strong>Website</strong>
-  <%= @restaurant.website { |row|  } %>
-</p>
-   <p>
-    <strong>Map</strong>
-  </p>
+  </td>
+  <td>  <%= @restaurant.street_address_2 %>
+  </td>
+</tr>
 
-    <img src="https://maps.googleapis.com/maps/api/staticmap?markers=size:mid|
-    <%= CGI.escape(@restaurant.street_address_1 + @restaurant.street_address_2 + @restaurant.city + @restaurant.state) %> &zoom=13&size=600x300">
-<br>
+<tr>
+  <td>
+  <strong>City:</strong>
+  </td>
+  <td>  <%= @restaurant.city %>
+  </td>
+</tr>
 
-<%= link_to 'Back', restaurants_path %>
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+<tr>
+  <td>
+  <strong>State:</strong>
+  </td>
+  <td>  <%= @restaurant.state %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+  <strong>Zip Code:</strong>
+  </td>
+  <td>  <%= @restaurant.zipcode %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+  <strong>Phone Number:</strong>
+  </td>
+  <td>  <%= @restaurant.phone_number %>
+  </td>
+</tr>
+<p>
+
+<tr>
+  <td>
+  <strong>Website:</strong> 
+  </td>
+  <td>  <%= link_to @restaurant.website, my_method(@restaurant.website) %>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+   <img src="https://maps.googleapis.com/maps/api/staticmap?markers=size:mid|
+    <%= CGI.escape(@restaurant.street_address_1 + @restaurant.street_address_2 + @restaurant.city + @restaurant.state) %> &zoom=13&size=600x300"></td>
+</tr>
+</table>
+
+<%= link_to 'Back', restaurants_path, class: "btn btn-default" %>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-default" %>
+
+
 
