@@ -1,18 +1,5 @@
 class RestaurantsController < ApplicationController
 	
-    # helper_method :my_method
-
-	# def my_method(test)
-
-	#     u=URI.parse(test)
-	#     if (!u.scheme)
-	#         link = "http://" + test
-	#     else
-	#         link = test
-	#     end
-	# end
-
-
 	def index
 		@restaurant = Restaurant.all
 	end
@@ -22,33 +9,32 @@ class RestaurantsController < ApplicationController
 	end
 
 
-def create
-		
-		@restaurant = Restaurant.new(user_params)
-		    if @restaurant.save
-		    	redirect_to restaurant_path(@restaurant.id)
-    		else
-      	flash[:alert] = "Something went wrong! Please try again!"
+	def create
+			
+			@restaurant = Restaurant.new(user_params)
+			    if @restaurant.save
+			    	redirect_to restaurant_path(@restaurant.id)
+	    		else
+	      	flash[:alert] = "Something went wrong! Please try again!"
 
-     	render 'new'
-    end
-end
+	     	render 'new'
+	    end
+	end
 
-	# end
-def show
-  @restaurant = Restaurant.find(params[:id])
-end
+	def show
+	  @restaurant = Restaurant.find(params[:id])
+	end
 
 
-def update
-  @restaurant = Restaurant.find(params[:id])
- 
-  if @restaurant.update(user_params)
-    redirect_to @restaurant
-  else
-    render 'edit'
-  end
-end
+	def update
+	  @restaurant = Restaurant.find(params[:id])
+	 
+	  if @restaurant.update(user_params)
+	    redirect_to @restaurant
+	  else
+	    render 'edit'
+	  end
+	end
 
 
 	def edit
@@ -66,6 +52,5 @@ end
 	  def user_params
 	  	params.require(:restaurant).permit(:name, :street_address_1, :street_address_2, :city, :state, :zipcode, :phonenumber, :website)
   	  end
-
 
 end
