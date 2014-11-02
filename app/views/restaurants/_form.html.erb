@@ -10,7 +10,6 @@
     </ul>
 </div>
 <% end %>
-
     <div class="field form-group">
       <%= f.label :name,  class: 'col-sm-3 control-label' %>
       <div class="col-sm-9">
@@ -60,10 +59,16 @@
       <%= f.text_field :website, class: 'form-control' %>
         </div>
     </div>
+   <div class="col-sm-3">
+    <strong>Owner:</strong>
+    </div>
+    <div class="col-sm-9">
+    <%= current_owner.name %>
+    </div>
+    <br><br>
     <div class="actions form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit %>
     </div>
   </div>
-
 <% end %>

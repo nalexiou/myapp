@@ -1,8 +1,16 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      
       <a class="navbar-brand" href="/"><%= image_tag("food.gif", :alt => "image",:width => 50, :height => 31) %> Restaurant App</a>
     </div>
+        <div class="nav navbar-nav navbar-right">
+		    <% if owner_signed_in? %>
+			    <li> <%= link_to current_owner.email, edit_owner_registration_path  %> </li>
+				<li> <%= link_to "Logout", destroy_owner_session_path, method: :delete  %></li>
+			  	<% else %>
+				<li> <%= link_to "Sign Up", new_owner_registration_path  %></li>
+				<li> <%= link_to "Login", new_owner_session_path  %></li>
+	  		<% end %>
+	  </div>
   </div>
 </nav>
