@@ -72,8 +72,9 @@
 
 <tr>
   <td colspan="2">
-   <img src="https://maps.googleapis.com/maps/api/staticmap?markers=size:mid|
-    <%= CGI.escape(@restaurant.street_address_1 + @restaurant.street_address_2 + @restaurant.city + @restaurant.state) %> &zoom=13&size=400x300"></td>
+  <% staticmap = "https://maps.googleapis.com/maps/api/staticmap?markers=size:mid| "+
+    CGI.escape(@restaurant.street_address_1 + @restaurant.street_address_2 + @restaurant.city + @restaurant.state)+ "&zoom=13&size=400x300" %>
+  <%= image_tag(staticmap, class: "img-responsive", :alt => "Google Maps Static") %> 
 </tr>
 </table>
 <%= link_to 'Back', restaurants_path, class: "btn btn-default" %>
