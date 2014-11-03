@@ -16,14 +16,14 @@ class RestaurantsController < ApplicationController
 
 	def create
 			
-			@restaurant = current_owner.restaurants.new(user_params)
-			    if @restaurant.save
-			    	redirect_to restaurant_path(@restaurant.id)
-	    		else
-	      			flash[:alert] = "Something went wrong! Please try again!"
+		@restaurant = current_owner.restaurants.new(user_params)
+	    if @restaurant.save
+	    	redirect_to restaurant_path(@restaurant.id)
+		else
+  			flash[:alert] = "Something went wrong! Please try again!"
 
-	     			render 'new'
-	    		end
+ 			render 'new'
+		end
 	end
 
 	def show
