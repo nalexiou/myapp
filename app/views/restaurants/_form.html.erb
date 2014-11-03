@@ -1,18 +1,8 @@
 <%= form_for(@restaurant, html: {class: 'form-horizontal'}) do |f| %>
-<% if @restaurant.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited
-      this restaurant from being saved:</h2>
-    <ul>
-    <% @restaurant.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-</div>
-<% end %>
+  <%= render "error_messages", :target => @restaurant %>
     <div class="field form-group">
-      <%= f.label :name,  class: 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
+      <%= f.label :name, "Name"+mark_required(@restaurant, :name), class: 'col-sm-3 control-label' %>    
+     <div class="col-sm-9">
       <%= f.text_field :name, class: 'form-control' %>
         </div>
     </div>
@@ -59,16 +49,27 @@
       <%= f.text_field :website, class: 'form-control' %>
         </div>
     </div>
-   <div class="col-sm-3">
-    <strong>Owner:</strong>
+
+      <div class="field form-group">
+   <div class="col-sm-3 control-label">
+    <strong>Owner<%= mark_required(@restaurant, :owner_id) %></strong>
     </div>
     <div class="col-sm-9">
-    <%= current_owner.name %>
+      <!-- <p class="form-control">   -->      
+      <input class="form-control" readonly=true value=<%= current_owner.name %>></input>
+      <!-- </p> -->
     </div>
-    <br><br>
+  </div>
+    
     <div class="actions form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit %>
     </div>
-  </div>
+    </div>
+      <div class="col-sm-offset-3 col-sm-9">
+     <p>* Indicates required field</p>
+    </div>
+ 
+  
+
 <% end %>

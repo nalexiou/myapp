@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # u = Restaurant.all
-
 # u.each do |x|
 # 	x.owner_id = 1
 # 	x.save

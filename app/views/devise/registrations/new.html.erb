@@ -3,9 +3,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
+  <div><%= f.label :name, "Name"+mark_required(resource, :name) %> <br />
   <%= f.text_field :name, autofocus: true %></div>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email, "Email"+mark_required(resource, :email) %> <br />
   <%= f.email_field :email%></div>
 
   <div><%= f.label :password %><br />
@@ -16,5 +16,8 @@
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
+
+<br />
+<p>* Indicates required field</p>
 
 <%= render "devise/shared/links" %>

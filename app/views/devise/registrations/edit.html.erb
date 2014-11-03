@@ -4,11 +4,11 @@
   <%= devise_error_messages! %>
 
   <div>
-    <%= f.label :name %><br />
+    <%= f.label :name, "Name"+mark_required(resource, :name) %> <br />
     <%= f.text_field :name, autofocus: true  %>
   </div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email, "Email"+mark_required(resource, :email) %> <br />
   <%= f.email_field :email%></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -26,6 +26,9 @@
 
   <div><%= f.submit "Update" %></div>
 <% end %>
+
+<br />
+<p>* Indicates required field</p>
 
 <h3>Cancel my account</h3>
 
