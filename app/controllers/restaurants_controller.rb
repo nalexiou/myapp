@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :set_owner, only: [:show, :edit]
-  before_action :authenticate_owner!, except: [:index, :show]
+  before_action :authenticate_owner!, except: [:index, :show, :about]
   before_action :validate_owner, only: [:edit, :update, :destroy]
 
 
@@ -30,6 +30,9 @@ class RestaurantsController < ApplicationController
 
 	end
 
+	def about
+		
+	end
 
 	def update
 	  @restaurant = Restaurant.find(params[:id])
